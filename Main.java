@@ -91,5 +91,48 @@ public class Main {
 
         float percentage = (float) userScore / maxScore * 100.0f;
         System.out.println("User's percentage is " + percentage);
+
+        //String methods
+        System.out.println("Characters name length is: " + charName.length() + ".");
+        System.out.println("Uppercase character name: " + charName.toUpperCase() + ".");
+        System.out.println("Lowercase character name: " + charName.toLowerCase() + ".");
+
+        String txt = "Please locate where 'locate' occurs!";
+        System.out.println(txt.indexOf("locate"));
+
+        //If statement
+        if(maxScore == 150)
+        {
+            System.out.println("maxScore has a value of 150.");
+        }
+
+        if(userScore == 150)
+        {
+            System.out.println("userScore has a value of 150.");
+        } else {
+            System.out.println("userScore has a value of " + userScore + '.');
+        }
+
+        //Shorthand if else
+        int time = 20;
+        String result = (time < 18 ) ? "Good day." : "Good evening.";
+
+        System.out.println(result);
+
+        //For loop
+        for(int i = 0; i < 10; i++)
+        {
+            System.out.println(i);
+        }
+
+        //For each loop
+        String[] videogames = {"Nintendo", "PlayStation", "Xbox", "PC"};
+
+        for(String company : videogames)
+        {
+            System.out.println(company);
+        }
+
+        System.out.println(videogames[2]);
     }
 }
