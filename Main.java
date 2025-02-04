@@ -1,4 +1,24 @@
 public class Main {
+    static void printThisLn(String stringToPrint)
+    {
+        System.out.println(stringToPrint);
+    }
+    static int plusMethod(int x, int y) {
+        return x + y;
+    }
+    static double plusMethod(double x, double y) {
+        return x + y;
+    }
+    static int recursion(int k)
+    {
+        if(k > 0)
+        {
+            return k + recursion(k - 1);
+        } else
+        {
+            return 0;
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Hello World");
         System.out.print("Hello there, im plain print.");
@@ -134,5 +154,39 @@ public class Main {
         }
 
         System.out.println(videogames[2]);
+
+        //to change a value of an item in an array, refer to index value
+        videogames[3] = "Lmao";
+        for(String company : videogames)
+        {
+            System.out.println(company);
+        }
+
+        //There's also multidimensional arrays
+
+        int [][] myNumbers = { {1,2,3}, {4,5,6} };
+        System.out.println(myNumbers[1][2]);
+
+        for (int i = 0; i < myNumbers.length; ++i) {
+            for (int j = 0; j < myNumbers[i].length; ++j) {
+                System.out.println(myNumbers[i][j]);
+            }
+        }
+
+        printThisLn(charName);
+
+        //Method overloading. Multiple methods can have the same name as long as the number and/or type of parameters are different.
+        int myNum1 = plusMethod(5,4);
+        double myNum2 = plusMethod(5,4);
+
+        System.out.println("Variable myNum1: " + myNum1 + '.');
+        System.out.println("Variable myNum2: " + myNum2 + '.');
+
+        //This is recursion, a function that calls itself and must have a halting method
+        int recursiveInt = recursion(5);
+
+        System.out.println(recursiveInt);
+
+
     }
 }
