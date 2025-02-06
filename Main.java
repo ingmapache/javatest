@@ -24,6 +24,34 @@ class Dog extends Animal
     }
 }
 
+class OuterClass
+{
+    int x = 123;
+
+    class InnerClass
+    {
+        int y = 5;
+    }
+
+    private class PrivateInnerClass
+    {
+        int y = 6;
+    }
+
+    static class StaticInnerClass
+    {
+        int y = 7;
+    }
+
+    class InnerMethodClass
+    {
+        public int myInnerMethod()
+        {
+            return x;
+        }
+    }
+}
+
 public class Main {
     static void printThisLn(String stringToPrint)
     {
@@ -221,13 +249,13 @@ public class Main {
         synchronized	Methods can only be accessed by one thread at a time
         volatile	    The value of an attribute is not cached thread-locally, and is always read from the "main memory"
         */
-
+        /*
         Scanner myObj = new Scanner(System.in);
         printThisLn("Enter username:");
 
         String username = myObj.nextLine();
         printThisLn("Username is: " + username + ".");
-
+        */
         //Access modifiers
         /*
         public	The class is accessible by any other class
@@ -248,5 +276,27 @@ public class Main {
         pedro.animalSound();
         myPig.animalSound();
         myDog.animalSound();
+
+        /*
+            In Java we can nest a class inside a class with the purpose of grouping classes that belong together so that our code is more readable and maintainable.
+         */
+
+        OuterClass outerClass = new OuterClass();
+        OuterClass.InnerClass innerClass = outerClass.new InnerClass();
+        System.out.println(outerClass.x + innerClass.y);
+
+        //An inner class can be private or protected. If we dont want outside objects to access the inner class, it can be declared as private.
+
+        //OuterClass.PrivateInnerClass privateInnerClass = outerClass.new PrivateInnerClass();
+
+        //An inner class can also be static, which means that you can access it without creating an outer object.
+
+        OuterClass.StaticInnerClass staticInnerClass = new OuterClass.StaticInnerClass();
+        System.out.println(staticInnerClass.y);
+
+        //Inner classes can access attributes and methods of outer class.
+        OuterClass.InnerMethodClass innerMethodClass = outerClass.new InnerMethodClass();
+        System.out.println(innerMethodClass.myInnerMethod());
     }
+
 }
