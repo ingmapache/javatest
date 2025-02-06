@@ -1,5 +1,29 @@
 import java.util.*;
 
+class Animal
+{
+    public void animalSound()
+    {
+        System.out.println("The animal makes a sound.");
+    }
+}
+
+class Pig extends Animal
+{
+    public void animalSound()
+    {
+        System.out.println("The pig says: wee wee!");
+    }
+}
+
+class Dog extends Animal
+{
+    public void animalSound()
+    {
+        System.out.println("The dog says: woof woof!");
+    }
+}
+
 public class Main {
     static void printThisLn(String stringToPrint)
     {
@@ -211,10 +235,18 @@ public class Main {
         For attributes, methods and constructors, you can use the one of the following:
 
         Modifier	Description
-        public	The code is accessible for all classes
-        private	The code is only accessible within the declared class
-        default	The code is only accessible in the same package. This is used when you don't specify a modifier. You will learn more about packages in the Packages chapter
+        public	    The code is accessible for all classes
+        private 	The code is only accessible within the declared class
+        default	    The code is only accessible in the same package. This is used when you don't specify a modifier. You will learn more about packages in the Packages chapter
         protected	The code is accessible in the same package and subclasses. You will learn more about subclasses and superclasses in the Inheritance chapter
          */
+
+        Animal pedro = new Animal();
+        Animal myPig = new Pig();
+        Animal myDog = new Dog();
+
+        pedro.animalSound();
+        myPig.animalSound();
+        myDog.animalSound();
     }
 }
