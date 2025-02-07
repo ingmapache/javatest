@@ -1,3 +1,4 @@
+import java.sql.Array;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.time.*;
@@ -367,6 +368,33 @@ public class Main {
 
 
         printThisLn(String.valueOf(formattedDate));
-    }
 
+        //In Java you cannot add or remove elements from an array, to do that we can use the class ArrayList from java.util.ArrayList
+        ArrayList<String> instruments = new ArrayList<String>();
+        instruments.add("Guitar");
+        instruments.add("Banjo");
+        instruments.add("Kazooh");
+        instruments.add("Violin");
+
+        for (String instrument : instruments) {
+            printThisLn(instrument);
+        }
+
+        //we can change an item with the set method.
+
+        instruments.set(2, "Flute");
+        printThisLn(instruments.get(2));
+
+        //We can clear an arraylist with the clear method. And the sort method of collections package sorts the list alphabetically or numerically.
+
+        Collections.sort(instruments);
+
+        printThisLn("Sorted array:");
+
+        for(String instrument: instruments)
+        {
+            printThisLn(instrument);
+        }
+
+    }
 }
