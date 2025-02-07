@@ -1,4 +1,6 @@
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.time.*;
 
 class Animal
 {
@@ -357,6 +359,14 @@ public class Main {
         {
             printThisLn(String.valueOf(actualLevel));
         }
+
+        //Java doesnt have a built in time class, so we have to import it with import java.time
+        LocalDateTime timeNow = LocalDateTime.now();
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("E, MMM dd yyyy");
+        String formattedDate = timeNow.format(timeFormatter);
+
+
+        printThisLn(String.valueOf(formattedDate));
     }
 
 }
