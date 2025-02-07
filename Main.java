@@ -52,6 +52,24 @@ class OuterClass
     }
 }
 
+interface IAnimal
+{
+    public void animalSound();
+    public void sleep();
+}
+
+class Bear implements IAnimal
+{
+    public void animalSound()
+    {
+        System.out.println("ROAAAAAR");
+    }
+    public void sleep()
+    {
+        System.out.println("ZzZzZzZzZz");
+    }
+}
+
 public class Main {
     static void printThisLn(String stringToPrint)
     {
@@ -297,6 +315,15 @@ public class Main {
         //Inner classes can access attributes and methods of outer class.
         OuterClass.InnerMethodClass innerMethodClass = outerClass.new InnerMethodClass();
         System.out.println(innerMethodClass.myInnerMethod());
+
+        //An interface is a fully abstract class that is used to group related methods with empty bodies, it must be implemented onto a class with the implements keyword.
+
+       Bear Pooh = new Bear();
+       Pooh.animalSound();
+       Pooh.sleep();
+
+       //Interfaces cannot be used to create new objects, do not have a body, when implemented we must override all methods. One class can implement multiple interfaces.
+
     }
 
 }
