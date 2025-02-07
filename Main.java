@@ -70,6 +70,13 @@ class Bear implements IAnimal
     }
 }
 
+enum Level
+{
+    LOW,
+    MEDIUM,
+    HIGH
+}
+
 public class Main {
     static void printThisLn(String stringToPrint)
     {
@@ -324,6 +331,32 @@ public class Main {
 
        //Interfaces cannot be used to create new objects, do not have a body, when implemented we must override all methods. One class can implement multiple interfaces.
 
+        // An enum is a special class that  represents a group of constants.
+
+        Level myVar = Level.MEDIUM;
+
+        //They are often used in switch cases.
+
+        switch (myVar)
+        {
+            case LOW:
+                System.out.println("Low level");
+                break;
+            case MEDIUM:
+                printThisLn("Medium level");
+                break;
+            case HIGH:
+                printThisLn("High level");
+                break;
+
+        }
+
+        //The enum type has a value() method that returns an array of its constants.
+
+        for(Level actualLevel: Level.values())
+        {
+            printThisLn(String.valueOf(actualLevel));
+        }
     }
 
 }
