@@ -2,6 +2,8 @@ import java.sql.Array;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.time.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 class Animal
 {
@@ -505,6 +507,7 @@ public class Main {
 
         //The throw statement allows us to create a custom error
 
+        /*
         Scanner ageScanner = new Scanner(System.in);
 
         printThisLn("Please enter your age.");
@@ -518,5 +521,30 @@ public class Main {
         {
             printThisLn("You are old enough.");
         }
+         */
+        //We can use regex in java with java.util.regex
+        //Pattern compiles the regex and Matcher compares the regex vs the string.
+
+        String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        String email = "pepito@gmail.com";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+
+        if(matcher.matches())
+        {
+            printThisLn("Email is valid");
+        }
+        else
+        {
+            printThisLn("Email is not valid");
+        }
+
+        //Matches method verifies that the whole string matches the regex.
+
+        //Find looks for coincidences in the string
+        //split splits a string based of a pattern
+        //replaceALL  replaces all coincidences with  another text.
+
     }
 }
