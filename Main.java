@@ -2,6 +2,8 @@ import java.sql.Array;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.time.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -546,5 +548,125 @@ public class Main {
         //split splits a string based of a pattern
         //replaceALL  replaces all coincidences with  another text.
 
+        //A thread is the smallest unit of execution in a program and Java allows multiple to run at the same time.
+
+        //There are two main ways to create a thread in Java.
+
+        //Extending the thread class
+        class MyThread extends Thread
+        {
+            public void run()
+            {
+                for(int i = 1; i <= 5; i++)
+                {
+                    printThisLn(Thread.currentThread().getName() + " - iteration: " + i);
+                    try
+                    {
+                        Thread.sleep(500);;
+                    }
+                    catch (InterruptedException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        MyThread t1 = new MyThread();
+        MyThread t2 = new MyThread();
+
+        t1.start();
+        t2.start();
+
+        //implementing Runnable is the best practice as it allows a class to extend another class besides Thread.
+        //Separates execution logic from thread management.
+        class MyRunnable implements Runnable
+        {
+            public void run()
+            {
+                for(int i = 1; i <= 5; i++)
+                {
+                    printThisLn(Thread.currentThread().getName() + " - RunnableIteration: " + i);
+                    try
+                    {
+                        Thread.sleep(500);;
+                    }
+                    catch (InterruptedException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        Thread t3 = new Thread(new MyRunnable());
+        Thread t4 = new Thread(new MyRunnable());
+
+        t3.start();
+        t4.start();
+
+        //With multiple threads accessing a shared resource, race conditions can occur, to avoid this we can use synchronized.
+        /*class Counter {
+            private int count = 0;
+
+            public synchronized void increment() { // No `synchronized`
+                count++;
+            }
+
+            public int getCount() {
+                return count;
+            }
+        }
+
+        Counter counter = new Counter();
+
+        Runnable task = () -> {
+            for (int i = 0; i < 1000; i++) {
+                counter.increment();
+                printThisLn(String.valueOf(counter.count));
+            }
+        };
+
+        Thread t5 = new Thread(task);
+        Thread t6 = new Thread(task);
+
+        t5.start();
+        t6.start();
+        */
+        /*
+        ExecutorService is a high-level thread management utility that simplifies the process of creating, managing,
+        and reusing threads. Instead of manually starting and stopping threads, we use a thread pool to efficiently
+        manage concurrent tasks.
+         */
+
+        // First, we need a runnable task
+        class Worker implements Runnable
+        {
+            private int taskId;
+
+            public Worker(int taskId)
+            {
+                this.taskId = taskId;
+            }
+
+            public void run()
+            {
+                printThisLn(Thread.currentThread().getName() + " executing task " + taskId);
+            }
+        }
+
+        //Now we create an ExecutorService, this method ensures taht at most 3 tasks can run at the same time, and if
+        // there are more than 3, they will wait in a queue.
+
+        ExecutorService executor = Executors.newFixedThreadPool(4);
+
+        //Now we need to submit tasks to the executor
+        for(int i =  1; i <= 5; i++)
+        {
+            executor.execute(new Worker(i));
+        }
+
+        //Shutdown method waits until all submitted tasks finish before completely stopping.
+        executor.shutdown();
     }
 }
