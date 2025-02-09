@@ -396,5 +396,127 @@ public class Main {
             printThisLn(instrument);
         }
 
+        //LinkedList functions the same as arraylist but it uses way more memory, its used best when youre inserting or deleting elements pretty often.
+        //We can reverse the order with collections too
+
+        Collections.sort(instruments, Collections.reverseOrder());
+
+        for(String instrument: instruments)
+        {
+            printThisLn(instrument);
+        }
+
+        //An array is an ordered collection that stores elements and we access them with an index. A HashMap on the other hand, stores elements as an
+        //pair of Key/Values
+
+        HashMap<String, String> MrHashMap = new HashMap<String, String>();
+
+        //To add items to a hasha map we can use the put method.
+        MrHashMap.put("Potato", "Potatoe");
+        MrHashMap.put("Tomato", "Tomatoe");
+        printThisLn(String.valueOf(MrHashMap));
+
+        //To access a value, we have to use the get method to get the key
+        MrHashMap.get("Potato");
+
+        //To remove an item we have to use the remove method with the proper key
+        MrHashMap.remove("Potato");
+        printThisLn(String.valueOf(MrHashMap));
+
+        //To know how many items an hashmap has we can use the size method
+        printThisLn(String.valueOf(MrHashMap.size()));
+
+        //When looping through a hashmap, we can use the keySet() method to loop through keys or values() for values
+        for(String i: MrHashMap.keySet())
+        {
+            printThisLn(i);
+        }
+
+        //A hashset is a collection of unique items
+        HashSet<String> cars = new HashSet<String>();
+        cars.add("Volvo");
+        cars.add("BMW");
+        cars.add("Ferrari");
+        cars.add("Mazda");
+
+        printThisLn(String.valueOf(cars));
+
+        //To check if an item is already inside the hashset we can use the contain method
+        printThisLn(String.valueOf(cars.contains("Mazda")));
+
+        cars.add("Volvo"); //Doesn't add it since it already exists in the HashSet
+        printThisLn(String.valueOf(cars));
+
+        //Java has an object that can iterate through collections, and thats an iterator.
+        Iterator<String> carIterator = cars.iterator();
+
+        printThisLn(carIterator.next());
+
+        //To remove you can also use remove()
+
+        //A wrapper class lets us use a primitive type as an object.
+        //Its name is the same as the primitive type but with first letter uppercase and full name. Example:
+
+        //int --> Integer
+
+        //Wrapper classes contains method for conversion, comparation and value manipulations
+
+        int num = Integer.parseInt("123");
+        double d = Double.parseDouble("123.23");
+
+        printThisLn("This is string to int: " + num + ". This is string to double: " + d + ".");
+
+        String inte = Integer.toString(456);
+
+        printThisLn("This is integer to string: " + inte + ".");
+
+        Integer obj = 100;
+        int nuuum = obj.intValue();
+
+        printThisLn(String.valueOf(nuuum));
+
+        //Java collections only admit objects, so wrapper classes are primarly used to store primitives into collections
+
+        List<Double> doubleList = new ArrayList<>();
+        doubleList.add(126.99);
+        doubleList.add(164.66);
+
+        for (double number: doubleList)
+        {
+            printThisLn(String.valueOf(number));
+        }
+
+        //finally after try catch, lets us execute code after exception
+
+        int[] numArray = {1,2,3,4,5,6};
+
+        try
+        {
+            printThisLn(String.valueOf(numArray[10]));
+        }
+        catch (Exception e)
+        {
+            printThisLn("ERROR: Index of number 10 doesnt exist in numArray.");
+        }
+        finally
+        {
+            printThisLn("End of try-catch.");
+        }
+
+        //The throw statement allows us to create a custom error
+
+        Scanner ageScanner = new Scanner(System.in);
+
+        printThisLn("Please enter your age.");
+        int userAge = Integer.parseInt(ageScanner.nextLine());
+
+        if (userAge < 18)
+        {
+            throw new ArithmeticException("You are not old enough");
+        }
+        else
+        {
+            printThisLn("You are old enough.");
+        }
     }
 }
