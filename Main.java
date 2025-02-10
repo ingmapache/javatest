@@ -668,5 +668,22 @@ public class Main {
 
         //Shutdown method waits until all submitted tasks finish before completely stopping.
         executor.shutdown();
+
+        class Patient
+        {
+            public Patient(String name, String email)
+            {
+                this.name = name;
+                this.email = email;
+            }
+            String name;
+            String email;
+            String address;
+            String phoneNumber;
+            String birthday;
+            Double weight;
+            Double height;
+            String blood;
+        }
     }
 }
