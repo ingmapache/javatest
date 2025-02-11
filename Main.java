@@ -685,5 +685,7 @@ public class Main {
             Double height;
             String blood;
         }
+
+        Patient paciente1 = new Patient("Juan Perez", "lamo@gmail.com");
     }
 }
