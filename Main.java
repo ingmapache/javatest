@@ -551,7 +551,7 @@ public class Main {
         //A thread is the smallest unit of execution in a program and Java allows multiple to run at the same time.
 
         //There are two main ways to create a thread in Java.
-
+/*
         //Extending the thread class
         class MyThread extends Thread
         {
@@ -577,7 +577,7 @@ public class Main {
 
         t1.start();
         t2.start();
-
+        /*
         //implementing Runnable is the best practice as it allows a class to extend another class besides Thread.
         //Separates execution logic from thread management.
         class MyRunnable implements Runnable
@@ -638,7 +638,7 @@ public class Main {
         and reusing threads. Instead of manually starting and stopping threads, we use a thread pool to efficiently
         manage concurrent tasks.
          */
-
+        /*
         // First, we need a runnable task
         class Worker implements Runnable
         {
@@ -668,15 +668,26 @@ public class Main {
 
         //Shutdown method waits until all submitted tasks finish before completely stopping.
         executor.shutdown();
+        */
 
         class Patient
         {
+            private String name;
+
             public Patient(String name, String email)
             {
                 this.name = name;
                 this.email = email;
             }
-            String name;
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String newName){
+                name = newName;
+            }
+
             String email;
             String address;
             String phoneNumber;
@@ -686,6 +697,11 @@ public class Main {
             String blood;
         }
 
+        printThisLn("asdasd");
         Patient paciente1 = new Patient("Juan Perez", "lamo@gmail.com");
+
+        paciente1.getName();
+        paciente1.setName("Lemeyo");
+
     }
 }
