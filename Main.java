@@ -15,6 +15,17 @@ class Animal
     }
 }
 
+class Enclosing
+{
+    private static int x = 1;
+
+    public static class StaticNested {
+        void run(){
+            System.out.println(x);
+        }
+    }
+}
+
 class Pig extends Animal
 {
     public void animalSound()
@@ -703,5 +714,8 @@ public class Main {
         paciente1.getName();
         paciente1.setName("Lemeyo");
 
+        //An static nested class doesnt need an instance of the outer one to run
+        Enclosing.StaticNested  nested = new Enclosing.StaticNested();
+        nested.run();
     }
 }
