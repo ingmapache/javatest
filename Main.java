@@ -1,122 +1,100 @@
-import java.sql.Array;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
-import java.time.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Date;
 
-class Animal
-{
-    public void animalSound()
-    {
-        System.out.println("The animal makes a sound.");
-    }
-}
-
-class Enclosing
-{
-    private static int x = 1;
-
-    public static class StaticNested {
-        void run(){
-            System.out.println(x);
-        }
-    }
-}
-
-class Pig extends Animal
-{
-    public void animalSound()
-    {
-        System.out.println("The pig says: wee wee!");
-    }
-}
-
-class Dog extends Animal
-{
-    public void animalSound()
-    {
-        System.out.println("The dog says: woof woof!");
-    }
-}
-
-class OuterClass
-{
-    int x = 123;
-
-    class InnerClass
-    {
-        int y = 5;
-    }
-
-    private class PrivateInnerClass
-    {
-        int y = 6;
-    }
-
-    static class StaticInnerClass
-    {
-        int y = 7;
-    }
-
-    class InnerMethodClass
-    {
-        public int myInnerMethod()
-        {
-            return x;
-        }
-    }
-}
-
-interface IAnimal
-{
-    public void animalSound();
-    public void sleep();
-}
-
-class Bear implements IAnimal
-{
-    public void animalSound()
-    {
-        System.out.println("ROAAAAAR");
-    }
-    public void sleep()
-    {
-        System.out.println("ZzZzZzZzZz");
-    }
-}
-
-enum Level
-{
+enum Level {
     LOW,
     MEDIUM,
     HIGH
 }
 
+interface IAnimal {
+    public void animalSound();
+
+    public void sleep();
+}
+
+class Animal {
+    public void animalSound() {
+        System.out.println("The animal makes a sound.");
+    }
+}
+
+class Enclosing {
+    private static int x = 1;
+
+    public static class StaticNested {
+        void run() {
+            System.out.println(x);
+        }
+    }
+}
+
+class Pig extends Animal {
+    public void animalSound() {
+        System.out.println("The pig says: wee wee!");
+    }
+}
+
+class Dog extends Animal {
+    public void animalSound() {
+        System.out.println("The dog says: woof woof!");
+    }
+}
+
+class OuterClass {
+    int x = 123;
+
+    static class StaticInnerClass {
+        int y = 7;
+    }
+
+    class InnerClass {
+        int y = 5;
+    }
+
+    private class PrivateInnerClass {
+        int y = 6;
+    }
+
+    class InnerMethodClass {
+        public int myInnerMethod() {
+            return x;
+        }
+    }
+}
+
+class Bear implements IAnimal {
+    public void animalSound() {
+        System.out.println("ROAAAAAR");
+    }
+
+    public void sleep() {
+        System.out.println("ZzZzZzZzZz");
+    }
+}
+
 public class Main {
-    static void printThisLn(String stringToPrint)
-    {
+    static void printThisLn(String stringToPrint) {
         System.out.println(stringToPrint);
     }
+
     static int plusMethod(int x, int y) {
         return x + y;
     }
+
     static double plusMethod(double x, double y) {
         return x + y;
     }
-    static int recursion(int k)
-    {
-        if(k > 0)
-        {
+
+    static int recursion(int k) {
+        if (k > 0) {
             return k + recursion(k - 1);
-        } else
-        {
+        } else {
             return 0;
         }
     }
+
     public static void main(String[] args) {
+        /*
         System.out.println("Hello World");
         System.out.print("Hello there, im plain print.");
         System.out.print(" Im printing in the same line as last print.");
@@ -128,7 +106,7 @@ public class Main {
         /*
         This is also a comment, it's the same as a multi comment in angular.
          */
-
+        /*
         //To create a variable, we can declare it like we do in c#: type variableName = value;
         String lmao = "This is a string variable.";
         int intVariable = 45;
@@ -142,7 +120,7 @@ public class Main {
 
         /*But we need to remember that if we assign a value to a variable that already has one, we will overwrite it.
         If we want to make a read only variable, so that its value cant be changed, we need to use final keyword*/
-
+        /*
         final int myNextAge = 31;
 
         //Other types can be such as:
@@ -311,7 +289,7 @@ public class Main {
         default	    The code is only accessible in the same package. This is used when you don't specify a modifier. You will learn more about packages in the Packages chapter
         protected	The code is accessible in the same package and subclasses. You will learn more about subclasses and superclasses in the Inheritance chapter
          */
-
+    /*
         Animal pedro = new Animal();
         Animal myPig = new Pig();
         Animal myDog = new Dog();
@@ -323,7 +301,7 @@ public class Main {
         /*
             In Java we can nest a class inside a class with the purpose of grouping classes that belong together so that our code is more readable and maintainable.
          */
-
+/*
         OuterClass outerClass = new OuterClass();
         OuterClass.InnerClass innerClass = outerClass.new InnerClass();
         System.out.println(outerClass.x + innerClass.y);
@@ -537,7 +515,7 @@ public class Main {
          */
         //We can use regex in java with java.util.regex
         //Pattern compiles the regex and Matcher compares the regex vs the string.
-
+/*
         String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
         String email = "pepito@gmail.com";
 
@@ -680,7 +658,7 @@ public class Main {
         //Shutdown method waits until all submitted tasks finish before completely stopping.
         executor.shutdown();
         */
-
+        /*
         class Patient
         {
             private String name;
@@ -717,5 +695,22 @@ public class Main {
         //An static nested class doesnt need an instance of the outer one to run
         Enclosing.StaticNested  nested = new Enclosing.StaticNested();
         nested.run();
+        */
+
+        Doctor doctorRamiro = new Doctor("Ramiro Perez Tobias", "Mama huevos");
+
+        doctorRamiro.addAvailableAppointment(new Date(), "4 pm");
+        doctorRamiro.addAvailableAppointment(new Date(), "5 pm");
+        doctorRamiro.addAvailableAppointment(new Date(), "6 pm");
+
+        for (Doctor.AvailableAppointment Appointment : doctorRamiro.getAvailableAppointment()) {
+            printThisLn(Appointment.getDate() + " " + Appointment.getTime());
+        }
+
+        Doctor doctorPepo = new Doctor("Pepo Martinez", "Doctor karateka");
+
+        doctorPepo.showId();
+        doctorRamiro.showId();
+
     }
 }
