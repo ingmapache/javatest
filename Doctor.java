@@ -1,25 +1,23 @@
-import java.text.SimpleDateFormat;
+import User.User;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor {
+public class Doctor extends User {
     static int idCounter = 0;
     private  int id = 0;
     //Available appointment list
     ArrayList<AvailableAppointment> availableAppointment = new ArrayList<>();
-    private String name;
-    private String email;
     private String specialty;
 
-    Doctor(String name, String specialty) {
+    Doctor(String name, String email, String specialty) {
+        super(name, email);
         System.out.println("El nombre del doctor asignado es: " + name);
         this.id = ++idCounter;
-        this.name = name;
         this.specialty = specialty;
     }
 
     public void showName() {
-        System.out.println(this.name);
+        System.out.println(this.getName());
     }
 
     public void showSpecialty() {

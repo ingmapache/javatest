@@ -697,7 +697,7 @@ public class Main {
         nested.run();
         */
 
-        Doctor doctorRamiro = new Doctor("Ramiro Perez Tobias", "Mama huevos");
+        Doctor doctorRamiro = new Doctor("Ramiro Perez", "ramirop@gmail.com", "Inspecciona huevos");
 
         doctorRamiro.addAvailableAppointment(new Date(), "4 pm");
         doctorRamiro.addAvailableAppointment(new Date(), "5 pm");
@@ -707,7 +707,7 @@ public class Main {
             printThisLn(Appointment.getDate() + " " + Appointment.getTime());
         }
 
-        Doctor doctorPepo = new Doctor("Pepo Martinez", "Doctor karateka");
+        Doctor doctorPepo = new Doctor("Pepo Martinez", "lmao@gmail.com", "Doctor karateka");
 
         doctorPepo.showId();
         doctorRamiro.showId();
